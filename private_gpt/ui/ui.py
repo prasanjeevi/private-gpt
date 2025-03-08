@@ -24,7 +24,7 @@ from private_gpt.server.chunks.chunks_service import Chunk, ChunksService
 from private_gpt.server.ingest.ingest_service import IngestService
 from private_gpt.server.recipes.summarize.summarize_service import SummarizeService
 from private_gpt.settings.settings import settings
-from private_gpt.ui.images import logo_svg
+# from private_gpt.ui.images import logo_svg
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ THIS_DIRECTORY_RELATIVE = Path(__file__).parent.relative_to(PROJECT_ROOT_PATH)
 # Should be "private_gpt/ui/avatar-bot.ico"
 AVATAR_BOT = THIS_DIRECTORY_RELATIVE / "avatar-bot.ico"
 
-UI_TAB_TITLE = "My Private GPT"
+UI_TAB_TITLE = "Ingest"
 
 SOURCES_SEPARATOR = "<hr>Sources: \n"
 
@@ -389,8 +389,8 @@ class PrivateGptUi:
             ".footer-zylon-link:hover { color: #C7BAFF; }"
             ".footer-zylon-ico { height: 20px; margin-left: 5px; background-color: antiquewhite; border-radius: 2px; }",
         ) as blocks:
-            with gr.Row():
-                gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=PrivateGPT></div")
+            # with gr.Row():
+            #     gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=PrivateGPT></div")
 
             with gr.Row(equal_height=False):
                 with gr.Column(scale=3):
@@ -561,12 +561,12 @@ class PrivateGptUi:
                         additional_inputs=[mode, upload_button, system_prompt_input],
                     )
 
-            with gr.Row():
-                avatar_byte = AVATAR_BOT.read_bytes()
-                f_base64 = f"data:image/png;base64,{base64.b64encode(avatar_byte).decode('utf-8')}"
-                gr.HTML(
-                    f"<div class='footer'><a class='footer-zylon-link' href='https://zylon.ai/'>Maintained by Zylon <img class='footer-zylon-ico' src='{f_base64}' alt=Zylon></a></div>"
-                )
+            # with gr.Row():
+            #     avatar_byte = AVATAR_BOT.read_bytes()
+            #     f_base64 = f"data:image/png;base64,{base64.b64encode(avatar_byte).decode('utf-8')}"
+            #     gr.HTML(
+            #         f"<div class='footer'><a class='footer-zylon-link' href='https://zylon.ai/'>Maintained by Zylon <img class='footer-zylon-ico' src='{f_base64}' alt=Zylon></a></div>"
+            #     )
 
         return blocks
 

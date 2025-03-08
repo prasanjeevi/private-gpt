@@ -14,7 +14,7 @@ embedding:
   embed_dim: 768
 
 ollama:
-  llm_model: llama3.1
+  llm_model: llama3.2:3b
   embedding_model: nomic-embed-text
   api_base: http://localhost:11434
 
@@ -29,6 +29,6 @@ postgres:
   port: 5432
   database: postgres
   user: postgres
-  password: admin
-  schema_name: private_gpt
+  password: updateme
+  schema_name: kbstore
 
